@@ -1,0 +1,141 @@
+
+<!-- Material form login -->
+<div class="my-card">
+<mdb-card >
+
+  <mdb-card-header class="info-color white-text text-center py-4">
+    <h5>
+      <strong>Resume</strong>
+    </h5>
+  </mdb-card-header>
+
+
+  <!--Card content-->
+  <mdb-card-body class="px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form class="text-center" style="color: #757575;" [formGroup]="profileForm" >
+
+      <!-- Name -->
+      <div class="form-group">
+        <h3>Name</h3>
+        <div class="row">
+        <div class="md-form col" >
+          <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="First Name" formControlName="firstName" mdbInput>
+          <!--<label for="materialLoginFormEmail">First Name</label>-->
+        </div>
+        <div class="md-form col">
+          <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Last Name" formControlName="lastName" mdbInput>
+        </div>
+        </div>
+      </div>
+
+      <!--Email-->
+      <div class="form-group">
+        <h3>Email</h3>
+        <div class="row">
+          <div class="md-form col" >
+            <input type="email" id="materialLoginFormEmail" class="form-control" placeholder="Email" formControlName="email" mdbInput>
+            <!--<label for="materialLoginFormEmail">First Name</label>-->
+          </div>
+        </div>
+      </div>
+      <!-- address -->
+      <div class="form-group" formGroupName="address">
+        <h3>Address</h3>
+        <div class="row">
+          <div class="md-form col" >
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Street" formControlName="street" mdbInput>
+          </div>
+          <div class="md-form col">
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="City" formControlName="city" mdbInput>
+          </div>
+        </div>
+        <div class="row">
+          <div class="md-form col" >
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="State" formControlName="state" mdbInput>
+          </div>
+          <div class="md-form col">
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Pincode" formControlName="zip" mdbInput>
+          </div>
+        </div>
+      </div>
+
+      <div formArrayName="aliases">
+        <div class="row">
+          <div class="col">
+            <h3> Skills</h3>
+            <button (click)="addAlias()" mdbBtn color="info" outline="true" rounded="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect> Add Skills </button>
+          </div>
+        </div>
+
+        <div *ngFor="let address of aliases.controls; let i=index">
+          <!-- The repeated alias template -->
+          <div class="row">
+            <div class="md-form col" >
+              <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Skill" [formControlName]="i" mdbInput>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div formArrayName="projects">
+        <div class="row">
+          <div class="col">
+            <h3> Projects</h3>
+            <button (click)="addProject()" mdbBtn color="info" outline="true" rounded="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect> Add Projects </button>
+          </div>
+        </div>
+
+        <div *ngFor="let address of projects.controls; let i=index">
+          <!-- The repeated alias template -->
+          <div class="row">
+            <div class="md-form col" >
+              <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Project" [formControlName]="i" mdbInput>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div formArrayName="achievements">
+        <div class="row">
+          <div class="col">
+            <h3> Achievements</h3>
+            <button (click)="addAchievement()" mdbBtn color="info" outline="true" rounded="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect> Add Achievement </button>
+          </div>
+        </div>
+
+        <div *ngFor="let address of achievements.controls; let i=index">
+          <!-- The repeated alias template -->
+          <div class="row">
+            <div class="md-form col" >
+              <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Achievement" [formControlName]="i" mdbInput>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Password -->
+      <!--<div class="md-form">-->
+        <!--<input type="email" id="materialLoginFormEmail" class="form-control" mdbInput>-->
+        <!--<label for="materialLoginFormEmail">Password</label>-->
+      <!--</div>-->
+
+
+      <!-- Sign in button -->
+      <!--<button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect-->
+              <!--type="submit">Sign in</button>-->
+
+
+    <!-- Form -->
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <button type="submit" [disabled]="!profileForm.valid" rounded="true" class="my-4 waves-effect z-depth-0 btn-lg blue-gradient btn-block" mdbWavesEffect>Submit</button>
+    </form>
+
+    </form>
+  </mdb-card-body>
+
+</mdb-card>
+</div>
+<!-- Material form login -->
