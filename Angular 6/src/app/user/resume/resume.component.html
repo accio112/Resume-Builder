@@ -1,6 +1,6 @@
 
 <!-- Material form login -->
-<div class="my-card">
+<div class="my-card" >
 <mdb-card >
 
   <mdb-card-header class="info-color white-text text-center py-4">
@@ -21,11 +21,11 @@
         <h3>Name</h3>
         <div class="row">
         <div class="md-form col" >
-          <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="First Name" formControlName="firstName" mdbInput>
+          <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="First Name" value="{{userDetails.fullName.split(' ')[0]}}" formControlName="firstName" mdbInput>
           <!--<label for="materialLoginFormEmail">First Name</label>-->
         </div>
         <div class="md-form col">
-          <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Last Name" formControlName="lastName" mdbInput>
+          <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Last Name" value="{{userDetails.fullName.split(' ')[1]}}" formControlName="lastName" mdbInput>
         </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
         <h3>Email</h3>
         <div class="row">
           <div class="md-form col" >
-            <input type="email" id="materialLoginFormEmail" class="form-control" placeholder="Email" formControlName="email" mdbInput>
+            <input type="email" id="materialLoginFormEmail" class="form-control" placeholder="Email" value="{{userDetails.details.email}}" formControlName="email" mdbInput>
             <!--<label for="materialLoginFormEmail">First Name</label>-->
           </div>
         </div>
@@ -45,18 +45,18 @@
         <h3>Address</h3>
         <div class="row">
           <div class="md-form col" >
-            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Street" formControlName="street" mdbInput>
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Street" value="{{userDetails.details.address.street}}" formControlName="street" mdbInput>
           </div>
           <div class="md-form col">
-            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="City" formControlName="city" mdbInput>
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="City" value="{{userDetails.details.address.city}}" formControlName="city" mdbInput>
           </div>
         </div>
         <div class="row">
           <div class="md-form col" >
-            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="State" formControlName="state" mdbInput>
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="State" value="{{userDetails.details.address.state}}" formControlName="state" mdbInput>
           </div>
           <div class="md-form col">
-            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Pincode" formControlName="zip" mdbInput>
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Pincode" value="{{userDetails.details.address.zip}}" formControlName="zip" mdbInput>
           </div>
         </div>
       </div>

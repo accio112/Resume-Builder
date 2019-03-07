@@ -15,6 +15,7 @@ export class UserProfileComponent implements OnInit {
     this.userService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
+        localStorage.setItem('id', res['id']);
       },
       err => { 
         console.log(err);

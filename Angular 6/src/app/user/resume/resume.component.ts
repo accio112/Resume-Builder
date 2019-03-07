@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, FormBuilder, Validators, FormArray, NgForm} from '@angular/forms';
 import { UserService } from '../../shared/user.service'
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-resume',
@@ -8,7 +9,7 @@ import { UserService } from '../../shared/user.service'
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit {
-
+  userDetails;
   serverErrorMessages: string;
     name = new FormControl('');
     profileForm = this.fb.group({
@@ -31,6 +32,24 @@ export class ResumeComponent implements OnInit {
         this.fb.control('')
       ])
     });
+
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { };
+
+
+  ngOnInit() {
+    this.userService.getUserProfile().subscribe(
+      res => {
+        this.userDetails = res['user'];
+        // localStorage.setItem('id', res['id']);
+      },
+      err => {
+        console.log(err);
+
+      }
+    );
+  }
+
+
     addAlias() {
       this.aliases.push(this.fb.control(''));
     }
@@ -70,6 +89,7 @@ export class ResumeComponent implements OnInit {
             this.serverErrorMessages = 'Something went wrong.Please contact admin.';
         }
       );
+      this.router.navigate(['/userprofile']);
     }
 
     updateProfile() {
@@ -79,12 +99,5 @@ export class ResumeComponent implements OnInit {
           street: '123 Drew Street'
         }
       });
-    }
-
-    constructor(private fb: FormBuilder, private userService: UserService) { };
-
-
-    ngOnInit() {
-
     }
 }

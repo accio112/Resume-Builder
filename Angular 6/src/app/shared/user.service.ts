@@ -11,7 +11,7 @@ export class UserService {
   selectedUser: User = {
     fullName: '',
     email: '',
-    password: ''
+    password: '',
   };
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
@@ -23,8 +23,10 @@ export class UserService {
   postUser(user: User){
     return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
   }
+
   postDetails(user: User){
-    return this.http.post(environment.apiBaseUrl+'/saveDetails',user,this.noAuthHeader);
+    const new_user = {user:user,id:localStorage.getItem('id')};
+    return this.http.post(environment.apiBaseUrl+'/saveDetails',new_user,this.noAuthHeader);
   }
 
   login(authCredentials) {

@@ -19,7 +19,7 @@ var userSchema = new mongoose.Schema({
     },
     saltSecret: String,
     details: {
-        type: String
+        type: Object
     }
 });
 
