@@ -19,6 +19,7 @@ import { UserService } from './shared/user.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { ResumeComponent } from './user/resume/resume.component';
+import { TemplateComponent } from './user/template/template.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ResumeComponent } from './user/resume/resume.component';
     SignUpComponent,
     UserProfileComponent,
     SignInComponent,
-    ResumeComponent
+    ResumeComponent,
+    TemplateComponent
   ],
   imports: [
     BrowserModule,

@@ -33,5 +33,7 @@ export class UserProfileComponent implements OnInit {
     console.log("resume clicked" + this.userDetails);
     this.router.navigate(['/resume']);
   }
-
+  selectTemplate(){
+    this.router.navigate(['/template']);
+  }
 }
