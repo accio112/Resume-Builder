@@ -8,7 +8,7 @@ const cors = require('cors');
 const passport = require('passport');
 // const fs = require('fs');
 // const pdf = require('html-pdf');
-
+const path = require('path');
 const rtsIndex = require('./routes/index.router');
 
 var app = express();
@@ -21,6 +21,8 @@ var app = express();
 //     console.log(res);
 // });
 
+app.use(express.static(path.join(__dirname+'/public/')));
+console.log(path.join(__dirname+'/public'));
 // middleware
 app.use(bodyParser.json());
 app.use(cors());
