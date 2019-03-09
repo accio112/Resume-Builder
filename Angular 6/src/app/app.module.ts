@@ -20,6 +20,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { ResumeComponent } from './user/resume/resume.component';
 import { TemplateComponent } from './user/template/template.component';
+import { SelectTemplateComponent } from './select-template/select-template.component';
+import { Template2Component } from './user/template2/template2.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { TemplateComponent } from './user/template/template.component';
     UserProfileComponent,
     SignInComponent,
     ResumeComponent,
-    TemplateComponent
+    TemplateComponent,
+    SelectTemplateComponent,
+    Template2Component
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,22 @@
 <div id="cv" class="">
   <div class="mainDetails">
-    <div id="headshot" class="">
-      <img src="../../../assets/img/headshot.jpg" alt="{{userDetails.details.firstName}}.jpg" />
-    </div>
+    <!--<div id="headshot" class="">-->
+      <!--<img src="../../../assets/img/headshot.jpg" alt="{{userDetails.details.firstName}}.jpg" />-->
+    <!--</div>-->
 
-    <div id="name">
-      <h1 class=""> {{userDetails.fullName}}</h1>
+    <div id="name" class="">
+      <h1 class="" style="font-size: 2vw"> {{userDetails.details.firstName}} {{userDetails.details.lastName}}</h1>
       <h2 class="">{{userDetails.title}}</h2>
     </div>
 
-    <div id="contactDetails" class="">
-      <ul>
-        <li>e-mail: <a href="mailto:{{userDetails.email}}" target="_blank">{{userDetails.email}}</a></li>
+    <div id="contactDetails">
+      <ul style="font-size:">
+        <li>e-mail: <a href="mailto:{{userDetails.details.email}}" target="_blank">{{userDetails.details.email}}</a></li>
         <!--<li>w: <a href="http://www.bloggs.com">www.bloggs.com</a></li>-->
-        <li>Contact: {{userDetails.contact}}</li>
+        <li>Contact: {{userDetails.details.contact}}</li>
+        <li>Address: {{userDetails.details.address.street}} </li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{userDetails.details.address.city}}, {{userDetails.details.address.state}}, {{userDetails.details.address.zip}} </li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
       </ul>
     </div>
     <div class="clear"></div>
@@ -27,7 +30,7 @@
         </div>
 
         <div class="sectionContent">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor metus, interdum at scelerisque in, porta at lacus. Maecenas dapibus luctus cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
+          <p>{{userDetails.details.summary}}</p>
         </div>
       </article>
       <div class="clear"></div>
@@ -40,21 +43,9 @@
       </div>
 
       <div class="sectionContent">
-        <article>
-          <h2>{{userDetails.details.projects[0]}}</h2>
+        <article *ngFor="let projects of userDetails.details.projects">
+          <h2>{{projects}}</h2>
           <p class="subDetails">April 2011 - Present</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
-        </article>
-
-        <article>
-          <h2>{{userDetails.details.projects[1]}}</h2>
-          <p class="subDetails">Janruary 2007 - March 2011</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
-        </article>
-
-        <article>
-          <h2>{{userDetails.details.projects[0]}}</h2>
-          <p class="subDetails">October 2004 - December 2006</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
         </article>
       </div>
@@ -66,22 +57,10 @@
       <div class="sectionTitle">
         <h1>Key Skills</h1>
       </div>
-
-      <div class="sectionContent">
-        <ul class="keySkills">
-          <li>{{userDetails.details.aliases[0]}}</li>
-          <li>{{userDetails.details.aliases[1]}}</li>
-          <li>{{userDetails.details.aliases[2]}}</li>
-          <li>{{userDetails.details.aliases[3]}}</li>
-          <li>{{userDetails.details.aliases[4]}}</li>
-          <li>{{userDetails.details.aliases[5]}}</li>
-          <li>{{userDetails.details.aliases[6]}}</li>
-          <li>{{userDetails.details.aliases[7]}}</li>
-          <li>{{userDetails.details.aliases[8]}}</li>
-          <li>{{userDetails.details.aliases[9]}}</li>
-          <li>{{userDetails.details.aliases[10]}}</li>
-          <li>{{userDetails.details.aliases[11]}}</li>
-        </ul>
+      <div class="row">
+        <div class="sectionContent col-md-3" *ngFor="let alias of userDetails.details.aliases">
+              {{alias}}
+        </div>
       </div>
       <div class="clear"></div>
     </section>
@@ -89,20 +68,12 @@
 
     <section>
       <div class="sectionTitle">
-        <h1>Education</h1>
+        <h1>Achievements</h1>
       </div>
 
-      <div class="sectionContent">
+      <div class="sectionContent" *ngFor="let achievement of userDetails.details.achievements">
         <article>
-          <h2>College/University</h2>
-          <p class="subDetails">Qualification</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
-        </article>
-
-        <article>
-          <h2>College/University</h2>
-          <p class="subDetails">Qualification</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
+          <p>{{achievement}}</p>
         </article>
       </div>
       <div class="clear"></div>

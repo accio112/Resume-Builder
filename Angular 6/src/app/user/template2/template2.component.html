@@ -1,0 +1,58 @@
+<!-- FONTS -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+<!-- PAGE STUFF -->
+<div class="rela-block page" id="cv">
+  <div class="rela-block top-bar">
+    <div class="caps name"><div class="abs-center">{{userDetails.details.firstName}} {{userDetails.details.lastName}}</div></div>
+  </div>
+  <div class="side-bar">
+
+    <p class="rela-block caps side-header">Address</p>
+    <p>{{userDetails.details.address.street}}</p>
+    <p>{{userDetails.details.address.city}}, {{userDetails.details.address.state}}, {{userDetails.details.address.zip}}</p>
+    <p></p>
+    <p></p>
+    <br>
+    <p class="rela-block caps side-header">Email</p>
+    <p>{{userDetails.details.email}}</p><br>
+
+    <p class="rela-block caps side-header">Contact</p>
+    <p>{{userDetails.details.contact}}</p><br>
+
+    <p class="rela-block caps side-header">Expertise</p>
+    <div *ngFor="let alias of userDetails.details.aliases">
+      <p class="rela-block list-thing">{{alias}}</p>
+    </div>
+
+  </div>
+  <div class="rela-block content-container">
+    <h2 class="rela-block caps title">{{userDetails.details.title}}</h2>
+    <div class="rela-block separator"></div>
+    <div class="rela-block caps greyed">Profile</div>
+    <p class="long-margin">{{userDetails.details.summary}}</p>
+
+    <div class="rela-block caps greyed">Projects</div>
+    <div *ngFor="let projects of userDetails.details.projects">
+      <h3>{{projects}}</h3>
+      <p class="light">{{projects}}</p>
+    </div>
+    <p class="light">First job description</p>
+    <p class="justified">Plaid gentrify put a bird on it, pickled XOXO farm-to-table irony raw denim messenger bag leggings. Hoodie PBR&B photo booth, vegan chillwave meh paleo freegan ramps. Letterpress shabby chic fixie semiotics. Meditation sriracha banjo pour-over. Gochujang pickled hashtag mixtape cred chambray. Freegan microdosing VHS, 90's bicycle rights aesthetic hella PBR&B. </p>
+
+    <div class="rela-block caps greyed">Achievements</div>
+    <div *ngFor="let projects of userDetails.details.achievements">
+      <p class="light">{{projects}}</p>
+    </div>
+
+  </div>
+
+</div>
+
+<input type="button" data-html2canvas-ignore (click)="pdfGenerate()" value="Download pdf" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+

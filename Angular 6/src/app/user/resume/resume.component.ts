@@ -13,14 +13,17 @@ export class ResumeComponent implements OnInit {
   serverErrorMessages: string;
     name = new FormControl('');
     profileForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: [''],
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      title: ['',Validators.required],
       email:['',Validators.required],
+      contact:['',[Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
+      summary:['',Validators.required],
       address: this.fb.group({
-        street: [''],
-        city: [''],
-        state: [''],
-        zip: ['']
+        street: ['',Validators.required],
+        city: ['',Validators.required],
+        state: ['',Validators.required],
+        zip: ['',Validators.required]
       }),
       aliases: this.fb.array([
         this.fb.control('')
@@ -89,7 +92,7 @@ export class ResumeComponent implements OnInit {
             this.serverErrorMessages = 'Something went wrong.Please contact admin.';
         }
       );
-      this.router.navigate(['/userprofile']);
+      this.router.navigate(['/select-template']);
     }
 
     updateProfile() {
@@ -99,5 +102,9 @@ export class ResumeComponent implements OnInit {
           street: '123 Drew Street'
         }
       });
+    }
+
+    chooseTemp(){
+      this.router.navigate(['/select-template']);
     }
 }

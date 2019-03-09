@@ -4,9 +4,10 @@
 <mdb-card >
 
   <mdb-card-header class="info-color white-text text-center py-4">
-    <h5>
+    <h1>
       <strong>Resume</strong>
-    </h5>
+    </h1>
+    <p style="opacity: 0.5">(If saved already, go to select template)</p>
   </mdb-card-header>
 
 
@@ -21,12 +22,23 @@
         <h3>Name</h3>
         <div class="row">
         <div class="md-form col" >
-          <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="First Name" value="{{userDetails.fullName.split(' ')[0]}}" formControlName="firstName" mdbInput>
+          <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="First Name" value="First Name" formControlName="firstName" mdbInput>
           <!--<label for="materialLoginFormEmail">First Name</label>-->
         </div>
         <div class="md-form col">
-          <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Last Name" value="{{userDetails.fullName.split(' ')[1]}}" formControlName="lastName" mdbInput>
+          <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Last Name" value="Last Name" formControlName="lastName" mdbInput>
         </div>
+        </div>
+      </div>
+
+      <!--Title-->
+      <div class="form-group">
+        <h3>Title</h3>
+        <div class="row">
+          <div class="md-form col" >
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Web Developer/Data Scientist/etc.." formControlName="title" mdbInput>
+            <!--<label for="materialLoginFormEmail">First Name</label>-->
+          </div>
         </div>
       </div>
 
@@ -35,7 +47,27 @@
         <h3>Email</h3>
         <div class="row">
           <div class="md-form col" >
-            <input type="email" id="materialLoginFormEmail" class="form-control" placeholder="Email" value="{{userDetails.details.email}}" formControlName="email" mdbInput>
+            <input type="email" id="materialLoginFormEmail" class="form-control" placeholder="Email" value="Email" formControlName="email" mdbInput>
+            <!--<label for="materialLoginFormEmail">First Name</label>-->
+          </div>
+        </div>
+      </div>
+      <!--Contact-->
+      <div class="form-group">
+        <h3>Contact</h3>
+        <div class="row">
+          <div class="md-form col" >
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Contact" value="Contact" formControlName="contact" mdbInput>
+            <!--<label for="materialLoginFormEmail">First Name</label>-->
+          </div>
+        </div>
+      </div>
+      <!--Summary-->
+      <div class="form-group">
+        <h3>Summary</h3>
+        <div class="row">
+          <div class="md-form col" >
+            <input type="email" id="materialLoginFormEmail" class="form-control" placeholder="Email" value="Summary" formControlName="summary" mdbInput>
             <!--<label for="materialLoginFormEmail">First Name</label>-->
           </div>
         </div>
@@ -45,18 +77,18 @@
         <h3>Address</h3>
         <div class="row">
           <div class="md-form col" >
-            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Street" value="{{userDetails.details.address.street}}" formControlName="street" mdbInput>
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Street" value="Street" formControlName="street" mdbInput>
           </div>
           <div class="md-form col">
-            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="City" value="{{userDetails.details.address.city}}" formControlName="city" mdbInput>
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="City" value="City" formControlName="city" mdbInput>
           </div>
         </div>
         <div class="row">
           <div class="md-form col" >
-            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="State" value="{{userDetails.details.address.state}}" formControlName="state" mdbInput>
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="State" value="State" formControlName="state" mdbInput>
           </div>
           <div class="md-form col">
-            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Pincode" value="{{userDetails.details.address.zip}}" formControlName="zip" mdbInput>
+            <input type="text" id="materialLoginFormEmail" class="form-control" placeholder="Pincode" value="Pincode" formControlName="zip" mdbInput>
           </div>
         </div>
       </div>
@@ -129,10 +161,14 @@
 
 
     <!-- Form -->
+      <div class="col-md-6 float-left">
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-      <button type="submit" [disabled]="!profileForm.valid" rounded="true" class="my-4 waves-effect z-depth-0 btn-lg blue-gradient btn-block" mdbWavesEffect>Submit</button>
-    </form>
-
+      <button type="submit" [disabled]="!profileForm.valid" rounded="true" class=" my-4 waves-effect z-depth-0 btn-lg blue-gradient btn-block" mdbWavesEffect>Save</button>
+    </form></div>
+      <div class="col-md-6 float-right">
+        <button type="submit" rounded="true" (click)="chooseTemp()" class="pull-right my-4 waves-effect z-depth-0 btn-lg blue-gradient btn-block" mdbWavesEffect>Select Template </button>
+      </div>
+      <!--<input type="button" (click)="selectTemplate()" value="Template" />-->
     </form>
   </mdb-card-body>
 

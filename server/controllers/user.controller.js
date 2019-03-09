@@ -57,7 +57,10 @@ module.exports.saveDetails= ( req, res, next) => {
         // numAffected is the number of updated documents
         console.log(numAffected);
     };
-    User.update(query, {details: details}, {multi:false}, callback);
+    console.log(details);
+    if(details.contact) {
+        User.update(query, {details: details}, {multi: false}, callback);
+    }
     // console.log("User is "+ id);
 };
 
