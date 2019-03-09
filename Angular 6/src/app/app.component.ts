@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-root',
