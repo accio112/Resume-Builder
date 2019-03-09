@@ -5,5 +5,11 @@ Steps to run the project
 4. Now you can run the project using npm start command.
 
 Pdf's screenshots-
-![Optional Text](../master/myFolder/image.png)
-![Optional Text](../master/myFolder/image2.png)
+Template 1
+![Optional Text](../master/myFolder/image1.jpg)
+
+Template 2
+![Optional Text](../master/myFolder/image2.jpg)
+
+
+More templates coming soon....
