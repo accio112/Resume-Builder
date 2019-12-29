@@ -1,32 +1,24 @@
 require('./config/config');
 require('./models/db');
-require('./config/passportConfig');
+
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const passport = require('passport');
-// const fs = require('fs');
-// const pdf = require('html-pdf');
-const path = require('path');
+// const passport = require('passport');
 const rtsIndex = require('./routes/index.router');
 
 var app = express();
 
-// var html = fs.readFileSync('CV-Template/index.html', 'utf-8');
-// var options = {format: 'A4', timeout: '100000'};
-//
-// pdf.create(html,options).toFile('abc.pdf', (err,res) => {
-//     if(err) return console.log(err);
-//     console.log(res);
-// });
 
-app.use(express.static(path.join(__dirname+'/public/')));
-console.log(path.join(__dirname+'/public'));
+// app.use(express.static(path.join(__dirname+'/public/')));
+// console.log(path.join(__dirname+'/public'));
 // middleware
+
 app.use(bodyParser.json());
+
 app.use(cors());
-app.use(passport.initialize());
+// app.use(passport.initialize());
 app.use('/api', rtsIndex);
 
 // error handler

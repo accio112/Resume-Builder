@@ -1,16 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const ctrlUser = require('../controllers/user.controller');
+const ctrlProduct = require('../controllers/product.controller');
 
-const jwtHelper = require('../config/jwtHelper');
-
-router.post('/register', ctrlUser.register);
-router.post('/saveDetails', ctrlUser.saveDetails);
-router.post('/authenticate', ctrlUser.authenticate);
-router.get('/userProfile',jwtHelper.verifyJwtToken, ctrlUser.userProfile);
+router.get('/', ctrlProduct.addProduct);
+router.post('/', ctrlProduct.uploadSingle);
+router.get('/list', ctrlProduct.getProductList);
+router.get('/filter', ctrlProduct.getFilterProduct);
+router.post('/filter', ctrlProduct.postFilterProduct);
+router.patch('/:id', ctrlProduct.updateProduct);
+router.delete('/:id', ctrlProduct.deleteProduct);
+router.get('/showImage/:id', ctrlProduct.showImage);
 
 module.exports = router;
-
-
-
